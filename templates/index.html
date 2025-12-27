@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Dashboard</title>
+  <link href="{{ url_for('static', filename='output.css') }}" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body id="mainBody"
+  class="min-h-screen p-4 font-sans text-gray-800 bg-gradient-to-br from-sky-200 to-blue-300 transition-all duration-500">
+
+  <!-- ===== Top: Title + Search ===== -->
+  <div class="flex justify-between items-center mb-6">
+    <!-- Title -->
+    <h1 class="text-4xl font-extrabold tracking-wide 
+           text-transparent bg-clip-text 
+           bg-gradient-to-r from-blue-400 to-cyan-300">
+  🌤 Weather Dashboard
+</h1>
+
+
+    <!-- Search Bar -->
+    <form id="weatherForm" class="flex gap-1">
+      <input type="text" id="city" placeholder="Enter city name" 
+             class="px-3 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-400 text-black">
+      <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Search</button>
+    </form> 
+    <button id="themeToggle"
+  class="ml-3 px-3 py-2 rounded-lg bg-white/30 hover:bg-white/40 text-xl transition">
+  🌙
+</button>
+
+  </div>
+
+  <!-- ===== Row 1: Date + Current Weather + Forecast ===== -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 items-start">
+
+<div class="light-panel rounded-2xl p-6 text-center">
+  <h2 class="text-lg font-semibold mb-3">📍 Location</h2>
+
+  <p class="text-2xl font-bold" id="dateText"></p>
+  <p class="text-md" id="dayText"></p>
+  <p class="mt-2 text-lg font-semibold" id="cityText"></p>
+</div>
+
+
+  <div id="todayWeather" class="light-panel rounded-2xl p-6 text-center">
+  <h2 class="text-lg font-semibold mb-3">🌤 Current Weather</h2>
+
+  <img id="todayIcon" class="mx-auto w-24 h-24 mb-2">
+  <p class="text-3xl font-bold" id="todayTemp"></p>
+  <p class="capitalize text-lg" id="todayDesc"></p>
+</div>
+
+  <div class="light-panel
+ rounded-2xl p-4">
+  <h2 class="text-lg font-semibold mb-3 text-center">📆 5-Day Forecast</h2>
+
+  <div id="forecast" class="flex gap-3 overflow-x-auto"></div>
+</div>
+
+
+</div>
+<!-- ===== Row 2: Temperature Chart + Right Panel ===== -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+
+  <!-- Temperature Chart (LEFT - 3 columns) -->
+  <div class="light-panel rounded-2xl p-4 col-span-3 h-[260px]">
+    <h2 class="text-xl font-bold mb-2 text-center">🌡 Temperature Overview</h2>
+    <canvas id="tempChart" class="w-full h-full"></canvas>
+  </div>
+
+  <!-- Right Panel -->
+  <div class="light-panel rounded-2xl p-4 flex flex-col gap-3 justify-center">
+          <h2 class="text-lg font-semibold ">🌬 Weather Details</h2>
+    <div class="flex items-center gap-2 ">
+      <span class="text-blue-400 text-xl">💨</span>
+      <div>
+        <p class="font-semibold">Wind</p>
+        <p id="windText">-- m/s</p>
+      </div>
+    </div>
+
+    <div class="flex  gap-2 ">
+      <span class="text-blue-400 text-xl">💧</span>
+      <div>
+        <p class="font-semibold">Humidity</p>
+        <p id="humidityText">-- %</p>
+      </div>
+    </div>
+
+    <div class="flex  gap-2 ">
+      <span class="text-yellow-400 text-xl">🌡</span>
+      <div>
+        <p class="font-semibold">Feels Like</p>
+        <p id="feelsText">-- °C</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.weather-icon {
+    font-size: 80px;
+    animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.container, .glass {
+    max-width: 95%;       /* fit smaller screens */
+    width: 100%;
+    margin: auto;
+    padding: 1.5rem;      /* more padding for small screens */
+    border-radius: 1.5rem;
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.8);
+}
+.dark-bg {
+  background: linear-gradient(to bottom right, #0f172a, #020617);
+  color: #e5e7eb;
+}
+
+.dark-panel {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.light-panel {
+  background: rgba(255, 255, 255, 0.30);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}

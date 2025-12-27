@@ -1,0 +1,18 @@
+# Python virtual environment
+venv/
+__pycache__/
+
+# Environment variables
+.env
+
+# Tailwind generated file
+static/output.css
+
+# Node modules (if any)
+node_modules/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
