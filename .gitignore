@@ -6,7 +6,7 @@ __pycache__/
 .env
 
 # Tailwind generated file
-static/output.css
+static/input.css
 
 # Node modules (if any)
 node_modules/
